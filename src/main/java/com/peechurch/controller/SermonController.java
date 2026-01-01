@@ -25,11 +25,6 @@ public class SermonController {
 
     @GetMapping("/youtube")
     public ResponseEntity<String> getYoutubeSermons() {
-        System.out.println("EC2 apiKey length = " + (apiKey == null ? "null" : apiKey.length()));
-        System.out.println("EC2 apiKey masked = " + (apiKey == null || apiKey.length() < 8
-                ? String.valueOf(apiKey)
-                : apiKey.substring(0,4) + "..." + apiKey.substring(apiKey.length()-4)));
-        System.out.println("EC2 channelId = " + channelId);
 
         String url =
                 "https://www.googleapis.com/youtube/v3/search" +
@@ -42,12 +37,6 @@ public class SermonController {
 
         String response = restTemplate.getForObject(url, String.class);
         return ResponseEntity.ok(response);
-    }
-
-
-    @PostConstruct
-    public void checkKey() {
-        System.out.println("YouTube API Key loaded: " + (apiKey != null && !apiKey.isBlank()));
     }
 
 }

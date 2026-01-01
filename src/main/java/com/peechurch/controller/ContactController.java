@@ -28,6 +28,13 @@ public class ContactController {
                 req.getMessage()
         );
 
-        return ResponseEntity.ok("Message sent");
+        try {
+            // send email
+            return ResponseEntity.ok("Message sent");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body("Failed to send message: " + e.getMessage());
+        }
+
     }
 }

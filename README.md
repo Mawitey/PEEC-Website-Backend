@@ -12,4 +12,4 @@ The API are all able to be connected to the frontend and function properly. Also
 
 
 ### Next steps
-- Enhance the website by accepting comments from users.
+Enhance the website by accepting comments from users.
